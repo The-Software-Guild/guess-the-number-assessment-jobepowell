@@ -72,6 +72,11 @@ public class Game {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Game{" + "id=" + id + ", answer=" + answer + ", status=" + status + '}';
+    }
     
     
     

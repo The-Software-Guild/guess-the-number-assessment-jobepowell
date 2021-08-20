@@ -18,6 +18,7 @@ public interface GuessTheNumberDao {
     Round addRound(Round round);
     Game addGame(Game game);
     
+    List<Round> getAllRoundsByTime();
     List<Round> getAllRounds();
     List<Game> getAllGames();
 
@@ -31,5 +32,6 @@ public interface GuessTheNumberDao {
     // true if item exists and is deleted
     boolean deleteRoundById(int id);
     boolean deleteGameById(int id);
+    
     
 }

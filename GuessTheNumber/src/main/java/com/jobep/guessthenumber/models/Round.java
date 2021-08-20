@@ -6,6 +6,7 @@
 package com.jobep.guessthenumber.models;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 /**
@@ -14,10 +15,22 @@ import java.util.Objects;
  */
 public class Round {
     private int id;
+    private int gameId;
     private String guess;
     private LocalDateTime time;
     private String result;
 
+    public Round(){
+        this.time = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+    }
+    
+    public int getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
+    }
     public int getId() {
         return id;
     }
@@ -39,7 +52,7 @@ public class Round {
     }
 
     public void setTime(LocalDateTime time) {
-        this.time = time;
+        this.time = time.truncatedTo(ChronoUnit.SECONDS);
     }
 
     public String getResult() {
@@ -51,11 +64,18 @@ public class Round {
     }
 
     @Override
+    public String toString() {
+        return "Round{" + "id=" + id + ", gameId=" + gameId + ", guess=" + guess + ", time=" + time + ", result=" + result + '}';
+    }
+    
+    @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.guess);
-        hash = 79 * hash + Objects.hashCode(this.time);
-        hash = 79 * hash + Objects.hashCode(this.result);
+        int hash = 5;
+        hash = 67 * hash + this.id;
+        hash = 67 * hash + this.gameId;
+        hash = 67 * hash + Objects.hashCode(this.guess);
+        hash = 67 * hash + Objects.hashCode(this.time);
+        hash = 67 * hash + Objects.hashCode(this.result);
         return hash;
     }
 
@@ -71,6 +91,12 @@ public class Round {
             return false;
         }
         final Round other = (Round) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (this.gameId != other.gameId) {
+            return false;
+        }
         if (!Objects.equals(this.guess, other.guess)) {
             return false;
         }
@@ -82,6 +108,7 @@ public class Round {
         }
         return true;
     }
+    
     
     
 }
