@@ -21,7 +21,7 @@ CREATE TABLE ROUND(
 		FOREIGN KEY(gameId)
         REFERENCES GAME(gameId),
 	guess CHAR(4) NOT NULL,
-    time TIME NOT NULL,
+    time TIMESTAMP NOT NULL,
     result CHAR(6) NOT NULL
 );
 
@@ -44,6 +44,6 @@ CREATE TABLE ROUND(
 		FOREIGN KEY(gameId)
         REFERENCES GAME(gameId),
 	guess CHAR(4) NOT NULL,
-    time TIME NOT NULL,
+    time TIMESTAMP NOT NULL,
     result CHAR(6) NOT NULL
 );
